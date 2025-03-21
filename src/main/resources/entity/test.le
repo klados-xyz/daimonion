@@ -1,0 +1,18 @@
+@init("AI-powered research assistant that evolves over time")
+entity Intellect {
+
+    @desc("Stores processed research queries and results")
+    evolvable struct ResearchMemory {
+        string query;
+        string[] sources;
+        string synthesis;
+        uint256 timestamp;
+        float usefulness;
+    }
+
+    @think("Processes a user research request")
+    register func onResearchQuery(string query) -> ResearchMemory;
+
+    @think("Initializes system at startup")
+    register evolvable func onStartup() -> ResearchMemory;
+}
